@@ -1,7 +1,5 @@
 $( document ).ready(function(){
 
-
-
 initApp = function() {
         firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
@@ -35,11 +33,28 @@ initApp = function() {
         });
       };
 
-      function createProfile(displayName,email,uid){
-        const User = {
+      window.addEventListener('load', function() {
+        initApp()
+      });
+
+      function createProfile(displayName,email){
+        const user = {
           displayName : displayName,
-          email : email,
-          uid : uid,
+          email : email
+        }
+         if(firebase.auth().currentUser){
+          firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+            $.post('/signup',{user:user,idToken:idToken}).then(function(data){
+              
+              console.log(data)
+              
+            });
+          }).catch(function(error) {
+            console.log('Error...' + error);
+          });
+        }
+        else{
+          console.log('Not logged in...');
         }
 
         $.post('/signup',User).then(function(data){
@@ -64,10 +79,7 @@ initApp = function() {
         }
       }
 
-      window.addEventListener('load', function() {
-        initApp()
-      });
-
+      
       $(document).on('click','.create-topic',function(){
         const text = $('#topic-text').val();
         const uid = document.getElementById('uid').innerHTML;
@@ -82,9 +94,6 @@ initApp = function() {
       $(document).on('click','.create-profile',function(){
         const displayName = document.getElementById('display-name').innerHTML;
         const email = document.getElementById('email').innerHTML;
-        const uid = document.getElementById('uid').innerHTML;
-        createProfile(displayName,email,uid);
+        createProfile(displayName,email);
       });
-
-
 });

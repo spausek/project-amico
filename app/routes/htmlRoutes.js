@@ -12,6 +12,7 @@ const Router = Express.Router();
  })
 
  Router.get("/profile", function(req,res){
+ 	
  	res.sendFile(Path.join(__dirname + "/../public/profile.html"))
  })
 

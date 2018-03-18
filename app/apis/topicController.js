@@ -21,7 +21,6 @@ const TopicController = {
 		}
 		return Topic;
 	},
-	//should take a TOKEN as well for verification?
 	insertTopic : function(topic){
 		const ref = firebaseAdmin.database().ref('topics/' + topic.authorId + '/');
 		ref.push({

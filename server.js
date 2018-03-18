@@ -16,7 +16,6 @@ createServer = ()=>{
 	}
 
 	Server.app = express();
-	
 	Server.app.use(express.static(publicDirectory));
 	Server.app.use(bodyParser.urlencoded({ extended: true }));
 	Server.app.use(bodyParser.json());

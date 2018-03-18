@@ -1,7 +1,7 @@
 const firebaseAdmin = require('./firebaseAdmin.js');
 const UserController = {
 
-
+	//Use when returning data from a query
 	createUser : function(data){
 
 		const User = {
@@ -10,6 +10,16 @@ const UserController = {
 			email : data.email,
 		}
 
+		return User;
+	},
+	//Use when inserting a new user into FB
+	createNewUser : function(uid,data){
+		const User = {
+			uid : uid,
+			displayName : data.displayName,
+			email : data.email,
+
+		}
 		return User;
 	},
 
