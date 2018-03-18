@@ -47,41 +47,44 @@ initApp = function() {
         });
       }
 
-
-      function checkSignedIn(){
-        if(firebase.auth().currentUser){
-        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
-          $.post('/auth/validate',{idToken:idToken}).then(function(data){
-            console.log('Server response...');
-            console.log(data);
+      function createTopic(uid,text){
+          if(firebase.auth().currentUser){
+          firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+            $.post('/topic',{topic:{text:text},idToken:idToken}).then(function(data){
+              
+              console.log(data)
+              
+            });
+          }).catch(function(error) {
+            console.log('Error...' + error);
           });
-        }).catch(function(error) {
-          console.log('Error...' + error);
-        });
+        }
+        else{
+          console.log('Not logged in...');
+        }
       }
-      else{
-        console.log('Not logged in...');
-      }
-      }
-
 
       window.addEventListener('load', function() {
         initApp()
       });
 
+      $(document).on('click','.create-topic',function(){
+        const text = $('#topic-text').val();
+        const uid = document.getElementById('uid').innerHTML;
+        createTopic(uid,text);
+      })
       $(document).on('click','.sign-out',function(){
         firebase.auth().signOut();
         window.location = '/';
         console.log('SIGNED OUT!');
       })
 
-      $(document).on('click','.am-i-signed',checkSignedIn);
       $(document).on('click','.create-profile',function(){
         const displayName = document.getElementById('display-name').innerHTML;
         const email = document.getElementById('email').innerHTML;
         const uid = document.getElementById('uid').innerHTML;
-
-       
         createProfile(displayName,email,uid);
       });
+
+
 });

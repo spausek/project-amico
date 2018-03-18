@@ -26,7 +26,7 @@ const UserController = {
 			return false;
 		});
 	},*/
-
+	
 	insertUser: function(User){
 		
 		const UserController = this;
@@ -38,32 +38,41 @@ const UserController = {
 			});
 		
 	},
-	getUser : function(){
+	//just testing
+	getUser : function(uid){
 			
 				const db = firebaseAdmin.database();
 				const ref = db.ref("users/");
 				ref.once("value", function(snapshot) {
 				  console.log(snapshot.val());
-				});
-			
-			
-		
+				});	
 	},
-	validateIdToken : function(idToken){
-		firebaseAdmin.auth().verifyIdToken(token)
-  		.then(function(decodedToken) {
-    		const uid = decodedToken.uid;
-    		console.log('Validated Token for UID: ' + uid);
-    		return true;
-  		}).catch(function(error) {
-     		console.log('ERROR DURING VALIDATION');
-     		console.log(error.message);
-     		return false;
-     	});
+	//success is a callback that performs whatever action for the logged in user
+	validateIdToken : function(idToken,success){
+		try{
+
+			firebaseAdmin.auth().verifyIdToken(idToken)
+	  		.then(function(decodedToken) {
+	    		const uid = decodedToken.uid;
+	    		console.log('Validated Token for UID: ' + uid);
+	    		success(uid);
+	    		return true;
+	  		}).catch(function(error) {
+	     		console.log('ERROR DURING VALIDATION');
+	     		console.log(error.message);
+	     		return false;
+	     	});
+		}
+	
+		catch(error){
+			console.log(new Error('Error during token validation'));
+			console.log(error.message);
+			return error.message;
+		}
+
 	}
 
 }
-
 
 module.exports = UserController;
 

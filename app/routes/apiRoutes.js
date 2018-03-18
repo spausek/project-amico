@@ -23,9 +23,13 @@ Router.post('/signup',function(req,res){
 })
 
 Router.post('/topic', function(req,res){
-  const topic = TopicController.createTopic(req.body);
-  console.log(req.body);
-  TopicController.insertTopic();
+  const idToken = req.body.idToken;
+  const result = UserController.validateIdToken(idToken,function(uid){
+  	const text = req.body.topic.text;
+  	const topic = TopicController.createNewTopic(uid,text);
+  	TopicController.insertTopic(topic);
+  })
+  res.send(result);
 });
 
 
