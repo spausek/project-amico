@@ -57,5 +57,7 @@ typings/
 # dotenv environment variables file
 .env
 
-# ignore config.jsson
+# ignore config.json
  config.json
+ # ignore serviceAccount.json
+*.json

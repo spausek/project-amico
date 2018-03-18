@@ -1,41 +1,34 @@
-const db = require("../../models");
 const Express = require('express');
 const Router = Express.Router();
+const firebaseAdmin = require('../apis/firebaseAdmin.js');
+const UserController = require('../apis/userController.js');
+const TopicController = require('../apis/topicController.js');
 
+ /*Router.post('/auth/google/',function(req,res){
 
+ 	console.log(req.body);
+ 	res.end();
+ })*/
+Router.post('/signup',function(req,res){
 
-  Router.get("/api/users", function(req, res) {
+ 
+  const newUser = UserController.createUser(req.body);
+  const idToken = req.body.idToken;
+  
+  UserController.insertUser(newUser);
 
-   let users = [];
-    db.User.findAll({}).then(function(allUsers) {
-      users = allUsers;
-      res.send(users);
-  });
+  res.send(newUser);
 
-    
+  
+})
+
+Router.post('/topic', function(req,res){
+  const topic = TopicController.createTopic(req.body);
+  console.log(req.body);
+  TopicController.insertTopic();
 });
 
 
-  Router.post("/api/users", function(req, res) {
-    db.User.create({
-      user_name: req.body.user_name,
-      
-    }).then(function(dbUser) {
-
-      res.json(dbUser);
-    });
-  });
-
-
-  Router.delete("/api/users/:id", function(req, res) {
-    db.User.destroy({where:{
-      id : req.params.id,
-    }}).then(function(dbUser) {
-      res.json(dbUser);
-    });
-  });
-
- 
  
   
 module.exports = Router;

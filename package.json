@@ -18,9 +18,18 @@
   "homepage": "https://github.com/spausek/project-amico#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "firebase": "^4.11.0",
+    "firebase-admin": "^5.11.0",
+    "method-override": "^2.3.10",
+    "morgan": "^1.9.0",
     "mysql2": "^1.5.2",
+    "passport": "^0.4.0",
+    "passport-google-oauth": "^1.0.0",
     "path": "^0.12.7",
     "sequelize": "^4.37.0",
     "sequelize-cli": "^4.0.0"
