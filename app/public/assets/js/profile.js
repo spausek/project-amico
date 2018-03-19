@@ -48,7 +48,7 @@ $( document ).ready(function(){
     $(document).on('click','.save-profile',function(){
       console.log('sup');
         const displayName = $('#inputName').val();
-        const email = $('#email').text;
+        const email = $('#email').html();
         createNewProfile(displayName,email);
       });
 });

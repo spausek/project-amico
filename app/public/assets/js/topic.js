@@ -37,7 +37,8 @@ $( document ).ready(function(){
     if(firebase.auth().currentUser){
       firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
         $.post('/topic',{topic:{text:text},idToken:idToken}).then(function(data){
-           console.log(data)
+           //clearTopics();
+           //getTopics();
            //UPDATE OR REQUERY THE CURRENT TOPICS ON THE PAGE
          });
         }).catch(function(error) {
@@ -52,10 +53,12 @@ $( document ).ready(function(){
   }
 
       
-  $(document).on('click','.create-topic',function(){
-    const topicText =  $('#topic-text').val();
-    //createNewTopic(topicText);
-     getTopics();
+  $(document).on('click','.create-topic-btn',function(){
+    const topicText =  $('#new-topic-text').val();
+    createNewTopic(topicText);
+
+    $('#new-topic-text').val('');
+     //getTopics();
   })
 
 

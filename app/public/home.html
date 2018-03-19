@@ -133,103 +133,35 @@
                         </div> -->
 
                         <div class="col-lg-12">
-                                <form accept-charset="UTF-8" action="" method="POST">
-                                    <textarea class="expand form-control message-input-button-position" id="text" name="text" placeholder="Type in your message" rows="1"></textarea>
+                                <form accept-charset="UTF-8">
+                                    <textarea class="expand form-control message-input-button-position" id="new-topic-text" name="text" placeholder="Type in your message" rows="1"></textarea>
                                     <div class="float-right">
                                     <small class="pull-left text-muted" style="" id="count_message"></small>
-                                    <button type="button" class="btn btn-outline-primary" style="margin-left:4px">Post</button>
+                                    <button type="button" class="btn btn-outline-primary create-topic-btn" style="margin-left:4px">Post</button>
                                     </div>
                                 </form>
                         </div>
                       </li>
-              
-                      <li class="media list-group-item p-4">
-                        <img class="media-object d-flex align-self-start mr-3" src="assets/img/avatar-haig.png">
-                        <div class="media-body">
-                          <div class="media-heading">
-                            <small class="float-right text-muted">4 min</small>
-                            <h6>Haig Bedros</h6>
+                      <div class="topic-container">
+                      <li class="media list-group-item p-4 topic-post">
+                        <img class="media-object d-flex align-self-start mr-3 topic-author-avatar" src="assets/img/avatar-haig.png">
+                        <div class="media-body topic-thread">
+                          <div class="media-heading topic-details">
+                            <small class="float-right text-muted topic-timestamp">4 min</small>
+                            <h6 class="topic-author-name">Haig Bedros</h6>
                         </div>
-              
                           <p>
                             Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
                           </p>
-              
-              
-                          <ul class="media-list mb-2">
-                            <li class="media mb-3">
-                              <img class="media-object d-flex align-self-start mr-3" src="assets/img/avatar-will.png">
-                              <div class="media-body">
-                                <strong>Will Lastname: </strong>
-                                <p>
-                                Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec ullamcorper nulla non metus auctor fringilla. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed posuere consectetur est at lobortis.
-                                </p>
-                                </div>
-                            </li>
-                            <li class="media">
-                              <img class="media-object d-flex align-self-start mr-3" src="assets/img/avatar-phil.png">
-                              <div class="media-body">
-                                <strong>Phil Dominguez: </strong>
-                                <p> 
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                                </p>
-                            </div>
-                            </li>
-                          </ul>
                         </div>
-                      </li>
-              
-                      <li class="media list-group-item p-4">
-                        <img class="media-object d-flex align-self-start mr-3" src="assets/img/avatar-will.png">
-                        <div class="media-body">
-                          <div class="media-body-text">
-                            <div class="media-heading">
-                              <small class="float-right text-muted">12 min</small>
-                              <h6>Will Lastname</h6>
-                            </div>
-                            <p>
-                              Donec id elit non mi porta gravida at eget metus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-              
-                      <div>
-                      <li class="media list-group-item p-4">
-                        <img class="media-object d-flex align-self-start mr-3" src="assets/img/avatar-phil.png">
-                        <div class="media-body">
-                            <div class="media-body-text">
-                          <div class="media-heading">
-                            <small class="float-right text-muted">34 min</small>
-                            <h6>Phil Dominguez</h6>
-                          </div>
-                        
-              
-                          <p>
-                            Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                          </p>
-                        </div>
-              
-                          <ul class="media-list">
-                            <li class="media">
-                              <img class="media-object d-flex align-self-start mr-3" src="assets/img/avatar-haig.png">
-                              <div class="media-body">
-                                <strong>Haig Bedros: </strong>
-                                <p>
-                                Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec ullamcorper nulla non metus auctor fringilla. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed posuere consectetur est at lobortis.
-                                </p>
-                                </div>
-                            </li>
-                          </ul>
-                        </div>
-                      </li>
-                    </div>
+                      </li>  
+                  </div>
                     </ul>
                   </div>
-                  <div class="col-lg-3">
+                  <div class="col-lg-3 suggested-matches">
                     <div class="alert alert-warning alert-dismissible d-none d-lg-block" role="alert">
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                      <a class="alert-link" href="profile/index.html">Visit your profile!</a> Check your self, you aren't looking well.
+                      <a class="alert-link" href="profile.html">Visit your profile!</a> Check your self, you aren't looking well.
                     </div>
               
                     <div class="card mb-4 d-none d-lg-block">

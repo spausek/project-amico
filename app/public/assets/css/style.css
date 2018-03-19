@@ -1,7 +1,9 @@
 html {
     font-size: 10px;
   }
-  
+  .suggested-matches{
+    float:right;
+  }
   .navbar {
     z-index: 1030;
     width: 100%;
