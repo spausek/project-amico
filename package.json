@@ -25,6 +25,7 @@
     "express-session": "^1.15.6",
     "firebase": "^4.11.0",
     "firebase-admin": "^5.11.0",
+    "google-translate-api": "^2.3.0",
     "method-override": "^2.3.10",
     "moment": "^2.21.0",
     "moment-timezone": "^0.5.14",
