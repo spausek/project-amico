@@ -1,7 +1,8 @@
 const Express = require('express');
 const Path = require('path');
 const Router = Express.Router();
-
+const UserController = require('../apis/userController.js');
+const TopicController = require('../apis/topicController.js');
 
     
 Router.get("/", function(req, res) {

@@ -1,0 +1,65 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>Node Authentication</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+  
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <!-- Font Awesome Glyphicons -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <script src="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.css" />
+  <script src="../assets/js/firebase.js"></script>
+  <script src="../assets/js/session.js"></script>
+  <script src="../assets/js/home.js"></script>
+  <script src="../assets/js/topic.js"></script>
+  
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+        <a href="#" class="btn btn-default btn-sm sign-out">Logout</a>
+    </div>
+
+    <div class="row">
+
+        <!-- LOCAL INFORMATION -->
+        <div class="col-sm-3 text-center">
+            <div class="well">
+              <div><span><strong>Display Name: </strong><span id="user-display-name"></span></span>
+              </div>
+               <div><span><strong>Email: </strong><span id="user-email"></span></span></div>
+               <div> <span><strong>UID: </strong><span id="user-uid"></span></span></div>
+
+                 <div class="create-profile btn btn-primary">View Profile</div>
+                <div class="btn btn-primary sign-out"> Sign Out </div>
+
+            </div>
+        </div>
+        <div class="col-sm-6 text-center">
+            <div class="well">
+            
+            <textarea class="form-control " id="topic-text" rows="3"></textarea> 
+            <div class='btn btn-warning create-topic'> Create Topic</div> 
+
+            </div>
+            <div class="topic-container">
+              
+            </div>
+        </div>
+        <div class="col-sm-3 text-center">
+            <div class="well">
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>
