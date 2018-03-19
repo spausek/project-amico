@@ -41,6 +41,10 @@ html {
   .rounded-circle {
     border-radius: 50%;
   }
+
+  .form-control {
+    margin-top:4%;
+  }
   
   .img-responsive {
   max-width: 100%;
