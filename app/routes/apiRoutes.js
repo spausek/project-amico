@@ -5,7 +5,22 @@ const UserController = require('../apis/userController.js');
 const TopicController = require('../apis/topicController.js');
 
 
-Router.post('/signup',function(req,res){
+Router.post('/topic/search',function(req,res){
+ const idToken = req.body.idToken;
+
+ const result = UserController.validateIdToken(idToken, function(language){
+    TopicController.getTopics(language,function(topics){
+
+      res.send(topics);
+    }); 
+  });
+  
+});
+
+
+
+//New Profile
+Router.post('/profile',function(req,res){
 
   const idToken = req.body.idToken;  
   const result = UserController.validateIdToken(idToken, function(uid){
@@ -14,6 +29,14 @@ Router.post('/signup',function(req,res){
   });
   res.send(result);
 });
+//Update Profile
+Router.put('/profile',function(req,res){
+
+  const idToken = req.body.idToken;
+  
+
+
+})
 
 Router.post('/topic', function(req,res){
   const idToken = req.body.idToken;
