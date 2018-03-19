@@ -40,12 +40,12 @@ Router.put('/profile',function(req,res){
 
 Router.post('/topic', function(req,res){
   const idToken = req.body.idToken;
-  const result = UserController.validateIdToken(idToken,function(uid){
+  UserController.validateIdToken(idToken,function(uid){
   	const text = req.body.topic.text;
   	const topic = TopicController.createNewTopic(uid,text);
   	TopicController.insertTopic(topic);
-  })
-  res.send(result);
+  });
+  res.end();
 });
 
 
