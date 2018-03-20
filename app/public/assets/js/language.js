@@ -47,11 +47,5 @@
   }
 
 
-    // const languageOne = languages.map(spoken => {
-    //     return spoken;
-    // });
-    //console.log(languageOne);
-// console.log(languages.slice(0));
-
 
 
