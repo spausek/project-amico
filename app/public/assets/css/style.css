@@ -32,12 +32,20 @@ html {
     color:rgb(192,192,192);
     }
   
-  .navbar-form {
+  #language  {
+    padding-top: 5px;
+  }
+
+  .language-form {
     padding-top: 5px;
   }
   
   .rounded-circle {
     border-radius: 50%;
+  }
+
+  .form-control {
+    margin-top:4%;
   }
   
   .img-responsive {
