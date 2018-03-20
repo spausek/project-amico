@@ -3,6 +3,9 @@ const Router = Express.Router();
 const firebaseAdmin = require('../apis/firebaseAdmin.js');
 const UserController = require('../apis/userController.js');
 const TopicController = require('../apis/topicController.js');
+const keys = require('../../config/keys.js');
+const stripe = require('stripe')(keys.stripeSecretKey);
+
 
 
 Router.post('/topic/search',function(req,res){
