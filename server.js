@@ -7,6 +7,9 @@ const apiRoutes = require('./app/routes/apiRoutes.js');
 const publicDirectory = './app/public/';
 const expressHandlerbars = require('express-handlebars');
 const morgan = require('morgan');
+const keys = require('./config/keys.js');
+const stripe = require('stripe')(keys.stripeSecretKey);
+
 
 
 createServer = ()=>{

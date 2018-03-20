@@ -25,5 +25,9 @@ Router.get("/tutoring", function(req, res) {
   res.sendFile(Path.join(__dirname, "../public/tutoring.html"));
 });
 
+Router.get("/payment",function(req,res){
+	res.sendFile(Path.join(__dirname, "../public/payment.html"));
+})
+
 
 module.exports = Router;
