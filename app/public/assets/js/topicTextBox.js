@@ -1,14 +1,26 @@
 $(document).ready(function() {
-    const textMax = 200;
-    $('#count_message').html(textMax + ' remaining');
+    var text_max = 200;
+    $('#count_message').html(text_max + ' remaining');
     
     $('#text').keyup(function() {
-      const textLength = $('#text').val().length;
-      const textRemaining = textMax - textLength;
+      var text_length = $('#text').val().length;
+      var text_remaining = text_max - text_length;
       
-      $('#count_message').html(textRemaining + ' remaining');
+      $('#count_message').html(text_remaining + ' remaining');
+    });
+
+    $('input.expand').blur(function () {
+        $(this).animate({ width: "9.7em"}, 500); 
+    });
+
+    $('input.expand').focus(function () {
+        $(this).animate({ width: "15em"}, 500); 
     });
     
+    $('textarea.expand').blur(function () {
+        $(this).animate({ height: "2.4em" }, 500); 
+    });
+
     $('textarea.expand').focus(function () {
         $(this).animate({ height: "8em" }, 500); 
     });
