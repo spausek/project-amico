@@ -41,11 +41,9 @@
     };
   
   
+const languageOne = Object.keys(languages);
+console.log(languageOne);
 
-  for (language in languages) {
-      console.log(languages[language]);
-  }
-
-
-
-
+for (languageTwo in languages) {
+    console.log(languages[languageTwo]);
+}
