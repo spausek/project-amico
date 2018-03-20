@@ -1,5 +1,102 @@
-<form action="/charge" method="POST">
+<!doctype html>
+<html lang="en-us">
+
+<head>
+    <title>Amico</title>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- tab icon -->
+    <link rel="shortcut icon" type="image/png" href="assets/img/icon.png">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Css file -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/payment.css">
+
+</head>
+<nav class="navbar navbar-default navbar-fixed-top ">
+  <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
+
+      <a class="navbar-brand" href="#"> <span style="display:inline-block">
+          <img class="manImg" src="assets/img/icon.png" alt="brand"></span>
+      </a>
+      </div>
+
+  
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Messages</a></li>
+      </ul>
+      
+      <div class="navba-side-right">
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-bell"></span></a></li>
+
+      <li class="nav-item">
+      
+      <div class="dropdown">
+          <button class="btn btn-default .btn-transparent dropdown-toggle navbar-btn navbar-btn-avatar" type="button" id="menu1" data-toggle="dropdown">
+              <img class="rounded-circle img-responsive" src="assets/img/avatar-haig.png">
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Profile</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Edit profile</a></li>
+              <div class="divider"></div>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Logout</a></li>
+
+          </ul>
+
+      </div></li></ul>
+      
+      </div>
+      
+      <div>
+      <form class="navbar-form navbar-right">
+          <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+          </div>
+      </form>
+      </div>
+
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+      </nav>
+      <div class="container pt-4 pb-5">
+        <div class="row">
+          <div class="col-lg-12">
+           <div class="donation-pitch">
+            <p>
+          Amico is dedicated to bringing the world closer together by breaking down language barriers.
+          We want to see a world where people from all over the world can collaborate on new innovations in science and medicine,
+          discuss novel ideas in philosophy or passionately argue over whether Super Man could defeat The Hulk.
+           To help bring this vision to fruition we are asking for a small donation of 5 dollars that will go to improving this website and bringing the world closer together.
+            As a thank you for your generous contribution we are offering a one-hour session with one of our volunteer language tutors that can be help anywhere around the world via skype.
+             Thank you again for using Amico!
+            </p>
+        </div>
+       </div>
+      </div>
+    <div class="row">
+  
+    <form action="/charge" method="POST">
     <script
+    var keys = require('')
       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
       data-key= stripePublishableKey
       data-amount="1000"
@@ -8,4 +105,8 @@
       data-image=""
       data-locale="auto">
     </script>
-</form>
+    </form>
+
+  </div>
+
+</div>
