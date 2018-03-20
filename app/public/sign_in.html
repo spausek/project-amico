@@ -48,7 +48,7 @@
 
 
       <div class="mb-5">
-        <button class="btn btn-primary">Log In</button>
+        <button class="btn btn-primary" href="home.html">Log In</button>
         <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" id="resgistration">Sign up</button>
 
 
@@ -104,9 +104,9 @@
                     <div align="">
                         <input class="language-form col-lg-12" name="mydropdown-menu" type="text" list="language" placeholder="Select native language">
                         <datalist id="language">
-                            <option href="#" value="English">English</option>
-                            <option href="#" value="Spanish">Spanish</option>
-                            <option href="#" value="Armenian">Armenian</option>
+                            <option value="English">English</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="Armenian">Armenian</option>
                         </datalist>
                     </div>
                 </form>
@@ -124,9 +124,9 @@
                     <div align="">
                         <input class="language-form col-lg-12" name="mydropdown-menu" type="text" list="language" placeholder="Select studied language">
                         <datalist id="language">
-                            <option href="#" value="English">English</option>
-                            <option href="#" value="Spanish">Spanish</option>
-                            <option href="#" value="Armenian">Armenian</option>
+                            <option value="English">English</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="Armenian">Armenian</option>
                         </datalist>
                     </div>
                 </form>
@@ -178,6 +178,10 @@
 
      <!-- execute/clear BS loaders for docs -->
     <script>$(function(){while(window.BS&&window.BS.loader&&window.BS.loader.length){(window.BS.loader.pop())()}})</script>
+
+    <script>
+    const singlePageNav;
+    $(document).singlePageNav({filter: ':not(.external)'});</script>
 
   </body>
 </html>
