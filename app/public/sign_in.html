@@ -23,10 +23,19 @@
     <!-- Font -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
 
+    <style>
+        /* note: this is a hack for ios iframe for bootstrap themes shopify page */
+        /* this chunk of css is not part of the toolkit :) */
+        body {
+            width: 1px;
+            min-width: 100%;
+            *width: 100%;
+        }
+    </style>
 </head>
 
 
-<body>
+<body class="with-top-navbar"> 
 
 <!-- Jumbotron container -->
 <link rel="shortcut icon" type="image/png" href="assets/img/icon.png">
@@ -48,8 +57,8 @@
 
 
       <div class="mb-5">
-        <button class="btn btn-primary">Log In</button>
-        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" id="resgistration">Sign up</button>
+        <a href="./home.html"><button type="button" class="btn btn-primary">Log In</button></a>
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" id="resgistration" >Sign up</button>
 
 
        
@@ -104,9 +113,9 @@
                     <div align="">
                         <input class="language-form col-lg-12" name="mydropdown-menu" type="text" list="language" placeholder="Select native language">
                         <datalist id="language">
-                            <option href="#" value="English">English</option>
-                            <option href="#" value="Spanish">Spanish</option>
-                            <option href="#" value="Armenian">Armenian</option>
+                            <option value="English">English</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="Armenian">Armenian</option>
                         </datalist>
                     </div>
                 </form>
@@ -124,9 +133,9 @@
                     <div align="">
                         <input class="language-form col-lg-12" name="mydropdown-menu" type="text" list="language" placeholder="Select studied language">
                         <datalist id="language">
-                            <option href="#" value="English">English</option>
-                            <option href="#" value="Spanish">Spanish</option>
-                            <option href="#" value="Armenian">Armenian</option>
+                            <option value="English">English</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="Armenian">Armenian</option>
                         </datalist>
                     </div>
                 </form>
@@ -174,7 +183,15 @@
      <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
  
      <!-- app.js -->
-     <script src="assets/js/sign_in.js"></script>
+    <script src="assets/js/sign_in.js"></script>
+    <script src="./assets/js/firebase.js"></script>
+    <script src="./assets/js/session.js"></script>
+    <script src="./assets/js/home.js"></script>
+    <script src="./assets/js/profile.js"></script>
+    <script src="./assets/js/topic.js"></script>
+    <script src="./assets/js/topicTextBox.js"></script> 
+
+     
 
      <!-- execute/clear BS loaders for docs -->
     <script>$(function(){while(window.BS&&window.BS.loader&&window.BS.loader.length){(window.BS.loader.pop())()}})</script>
