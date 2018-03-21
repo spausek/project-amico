@@ -50,5 +50,6 @@ $( document ).ready(function(){
         const displayName = $('#inputName').val();
         const email = $('#email').text;
         createNewProfile(displayName,email);
+        window.location = "/home";
       });
 });

@@ -4,7 +4,5 @@ $( document ).ready(function(){
     firebase.auth().signOut();
     window.location = '/';
     console.log('SIGNED OUT!');
-  })
-  
-      
+  })    
 });
