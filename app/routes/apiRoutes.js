@@ -3,6 +3,7 @@ const Router = Express.Router();
 const firebaseAdmin = require('../apis/firebaseAdmin.js');
 const UserController = require('../apis/userController.js');
 const TopicController = require('../apis/topicController.js');
+const Path = require('path');
 const keys = require('../../config/keys.js');
 const stripe = require('stripe')(keys.stripeSecretKey);
 
@@ -63,7 +64,8 @@ Router.post('/charge', (req, res) => {
 	  description: 'Tutoring',
 	  currency: 'usd',
 	  customer: customer.id
-	}))
+  }))
+  .then(charge => res.sendFile(Path.join(__dirname, "../public/tutoring.html")))
 	
   });
   
