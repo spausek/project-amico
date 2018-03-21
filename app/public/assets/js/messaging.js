@@ -20,24 +20,26 @@ $(document).ready(() => {
     $newTranslation.val("");
   }
 
-  $(function () {
-    $(".postButton").on("click", function(event){
+
+     function  messageTranslate(newMessage) {
+       $.post("/message", {
+         newMessage: newMessage, 
+       }).then(function(data) {
+         console.log("Created new message");
+         console.log(data);
+       });
+     };
+ 
+    $(".postButton").on("click", function(event) {
       event.preventDefault();
-      let newMessage = {
-        message: $("#messageInput").val().trim(),
-      }
+      let newMessage = $("#messageInput").val().trim();
       console.log(newMessage);
-      $("#messageInput").val('');
+      $("#messageInput").val("");
       $(".media-body").append();
-      // $.ajax("/api/home", {
-      //   type: "POST",
-      //   data: newMessage
-      // }).then(function(){
-      //   console.log("Created new message");
-      //   location.reload();
-      // });
+      messageTranslate(newMessage);
     });
-  });
+
+  
 
 
 });

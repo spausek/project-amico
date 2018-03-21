@@ -2,14 +2,15 @@ const translate = require("google-translate-api");
 
 
 
-const amicosTranslate = function (message, languageOne, languageTwo) {
+
+const amicosTranslate = function (message, languageOne, languageTwo, callback) {
 
 translate(message, { from: languageOne, to: languageTwo })
   .then(res => {
-    console.log(res.from.text.value);
-    console.log(res.from.text.autoCorrected);
-    console.log(res.text);
-    console.log(res.from.text.didYouMean);
+    // console.log(res.from.text.value);
+    // console.log(res.from.text.autoCorrected);
+    // console.log(res.text);
+    // console.log(res.from.text.didYouMean);
     const translated = {
         originalMessage: message,
         autoCorrectedMessage: res.from.text.value,
@@ -18,16 +19,16 @@ translate(message, { from: languageOne, to: languageTwo })
         translatedMessage: res.text,
     }
     for (finalMessage in translated) {
-      console.log("for in loop: ",translated[finalMessage]);
+      // console.log("for in loop: ",translated[finalMessage]);
     }
-    console.log("The console says: ", translated);
-    return translated;
+    // console.log("The console says: ", translated);
+    callback(translated);
+    
   })
   .catch(err => {
     console.error(err);
   });
 }
-amicosTranslate("whut do you want to do today?", 'en', 'es');
 
 
 
