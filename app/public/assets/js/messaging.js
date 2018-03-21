@@ -28,7 +28,7 @@ $(document).ready(() => {
       }
       console.log(newMessage);
       $("#messageInput").val('');
-      //newMessage.appendTo(".media-body");
+      $(".media-body").append();
       // $.ajax("/api/home", {
       //   type: "POST",
       //   data: newMessage
