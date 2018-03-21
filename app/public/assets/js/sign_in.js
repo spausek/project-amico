@@ -10,5 +10,4 @@ $(document).ready(function() {
       var modal = $(this)
       modal.find('.modal-body input').val(recipient)
     })
-
-});    
+});

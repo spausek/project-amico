@@ -44,7 +44,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
             <li><a href="#">Home</a></li>
-            <li><a href="#">Messages</a></li>
+            <li><a data-toggle="modal" href="#msgModal">Messages</a></li>
         </ul>
         
         <div class="navba-side-right">
@@ -61,7 +61,7 @@
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Profile</a></li>
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Edit profile</a></li>
                 <div class="divider"></div>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Logout</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="./sign_in.html">Logout</a></li>
 
             </ul>
 
@@ -72,7 +72,7 @@
         <div>
         <form class="navbar-form navbar-right">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" class="expand form-control" placeholder="Search">
             </div>
         </form>
         </div>
@@ -80,14 +80,86 @@
         </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
         </nav>
-
         <!-- navbar ends -->
 
-        <!-- body starts -->
-        <div class="container pt-4 pb-5">
-                <div class="row">
+        <!-- message modal -->
+        <div class="modal fade" id="msgModal" tabindex="-1" role="dialog" aria-labelledby="msgModal" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <button type="button" class="btn btn-sm btn-secondary pull-right app-new-msg js-newMsg">New message</button>
+                <h4 class="modal-title">Messages</h4>
+              </div>
+        
+              <div class="modal-body p-a-0 js-modalBody">
+                <div class="modal-body-scroller">
+                  <div class="media-list media-list-users list-group js-msgGroup">
+                    <a href="#" class="list-group-item">
+                      <div class="media">
+                        <span class="media-left">
+                        <img class="img-circle media-object" src="assets/img/avatar-random.png">
+                        </span>
+                        <div class="media-body">
+                          <strong>Random Random</strong>
+                          <div class="media-body-secondary">
+                            Aenean eu leo quam. Pellentesque ornare sem lacinia quam &hellip;
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item">
+                      <div class="media">
+                        <span class="media-left">
+                          <img class="img-circle media-object" src="assets/img/avatar-kyle.png">
+                        </span>
+                        <div class="media-body">
+                          <strong>Kyle Cohen</strong>
+                          <div class="media-body-secondary">
+                            Brunch sustainable placeat vegan bicycle rights yeah…
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item">
+                      <div class="media">
+                        <span class="media-left">
+                          <img class="img-circle media-object" src="assets/img/avatar-phil.png">
+                        </span>
+                        <div class="media-body">
+                          <strong>Phil Dominguez</strong>
+                          <div class="media-body-secondary">
+                            Aenean eu leo quam. Pellentesque ornare sem lacinia quam &hellip;
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <div class="media">
+                          <span class="media-left">
+                            <img class="img-circle media-object" src="assets/img/avatar-will.png">
+                          </span>
+                          <div class="media-body">
+                            <strong>Will Lastname</strong>
+                            <div class="media-body-secondary">
+                              Aenean eu leo quam. Pellentesque ornare sem lacinia quam &hellip;
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- message modal -->
 
-                  <div class="col-lg-3">
+        <!-- body -->
+        <div class="container pt-4 pb-5">
+
+                <div class="row">
+                  <div class="col-md-3 col-sm-12">
                     <div class="card card-profile mb-4">
                       <div class="card-header" style="background-image: url(assets/img/connection.jpg);"></div>
                       <div class="card-body text-center">
@@ -104,7 +176,7 @@
                       </div>
                     </div>
               
-                    <div class="card d-md-block d-lg-block mb-4">
+                    <div class="card d-md-block d-md-block mb-4">
                       <div class="card-body">
                         <h6 class="mb-3">About <small>· <a href="#">Edit</a></small></h6>
                         <ul class="list-unstyled list-spaced">
@@ -118,21 +190,17 @@
                     </div>
                   </div>
               
-                  <div class="col-lg-6">
+                  <div class="col-md-6 col-sm-12">
               
                     <ul class="list-group media-list media-list-stream mb-4">
               
+<<<<<<< HEAD
                       <li class="media list-group-item p-4">
-                        <!-- <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Message">
-                          <div class="input-group-btn">
-                            <button type="button" class="btn btn-secondary align-self-stretch">
-                              <span class="icon icon-camera"></span>
-                            </button>
-                          </div>
-                        </div> -->
+=======
+                      <li class="media list-group-item p-4 type-message">
+>>>>>>> amico_ui_pages
 
-                        <div class="col-lg-12">
+                        <div class="col-md-12 col-sm-12">
                                 <form accept-charset="UTF-8" action="" method="POST">
                                     <textarea class="expand form-control message-input-button-position" id="messageInput" name="message" placeholder="Type in your message" rows="1"></textarea>
                                     <div class="float-right">
@@ -226,13 +294,13 @@
                     </div>
                     </ul>
                   </div>
-                  <div class="col-lg-3">
-                    <div class="alert alert-warning alert-dismissible d-none d-lg-block" role="alert">
+                  <div class="col-md-3 col-sm-12">
+                    <div class="alert alert-warning alert-dismissible d-none d-md-block" role="alert">
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
                       <a class="alert-link" href="profile/index.html">Visit your profile!</a> Check your self, you aren't looking well.
                     </div>
               
-                    <div class="card mb-4 d-none d-lg-block">
+                    <div class="card mb-4 d-none d-md-block">
                       <div class="card-body">
                       <h6 class="mb-3">Likes <small>· <a href="#">View All</a></small></h6>
                       <ul class="media-list media-list-stream">
