@@ -17,6 +17,9 @@ translate(message, { from: languageOne, to: languageTwo })
         dymMessage: res.from.text.didYouMean,
         translatedMessage: res.text,
     }
+    for (finalMessage in translated) {
+      console.log("for in loop: ",translated[finalMessage]);
+    }
     console.log("The console says: ", translated);
     return translated;
   })
@@ -25,5 +28,7 @@ translate(message, { from: languageOne, to: languageTwo })
   });
 }
 amicosTranslate("whut do you want to do today?", 'en', 'es');
+
+
 
 module.exports = amicosTranslate;

@@ -6,5 +6,9 @@ $( document ).ready(function(){
     console.log('SIGNED OUT!');
   })
   
+  $(document).on('click', 'save-profile', function () {
+    window.location = '/home';
+    console.log('Home page!');
+  })
       
 });

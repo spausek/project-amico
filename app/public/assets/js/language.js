@@ -42,8 +42,14 @@
   
   
 const languageOne = Object.keys(languages);
-console.log(languageOne);
+//console.log(languageOne);
 
 for (languageTwo in languages) {
-    console.log(languages[languageTwo]);
+    //console.log(languages[languageTwo]);
+    nativeLanguage = '<option>' + languageTwo + '</option>';
+    studiedLanguage = '<option>' + languages[languageTwo] + '</option>';
+
+    //$(languageScroll).appendTo('#native-language');
+    console.log(nativeLanguage);
+    console.log(studiedLanguage);
 }

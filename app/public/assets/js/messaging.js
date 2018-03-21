@@ -3,7 +3,7 @@ $(document).ready(() => {
     let translate = [];
 
   function getTranslations() {
-    $.get("/api/learning", function(data) {
+    $.get("/api/home", function(data) {
       translate = data;
     });
   }
@@ -16,9 +16,28 @@ $(document).ready(() => {
       languageTwo: languageinputTwo.val().trim()
     };
 
-    $.post("/api/learning", translate, getTranslations);
+    $.post("/api/home", translate, getTranslations);
     $newTranslation.val("");
   }
+
+  $(function () {
+    $(".postButton").on("click", function(event){
+      event.preventDefault();
+      let newMessage = {
+        message: $("#messageInput").val().trim(),
+      }
+      console.log(newMessage);
+      $("#messageInput").val('');
+      //newMessage.appendTo(".media-body");
+      // $.ajax("/api/home", {
+      //   type: "POST",
+      //   data: newMessage
+      // }).then(function(){
+      //   console.log("Created new message");
+      //   location.reload();
+      // });
+    });
+  });
 
 
 });
