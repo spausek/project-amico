@@ -53,7 +53,7 @@ Router.post('/topic', function(req,res){
 });
 
 Router.post('/charge', (req, res) => {
-	const amount = 1000;
+	const amount = 500;
 	
 	stripe.customers.create({
 	  email: req.body.stripeEmail,

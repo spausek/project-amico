@@ -6,3 +6,9 @@
         padding: 10px;
         border: 1px;
 }
+
+.sbtn, .btn-outline-primary {
+        text-align: center;
+        margin-left: 520%;
+        margin-top: 20%;
+}

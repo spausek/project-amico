@@ -99,12 +99,18 @@
     var keys = require('')
       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
       data-key= 'pk_test_ZS63sw2gWNE74yrwB0XYCt0s'
-      data-amount="1000"
+      data-amount="500"
       data-name="Test"
       data-description="Fun for the whole family"
       data-image="./assets/img/tutoring.jpg"
       data-locale="auto">
     </script>
+    <!-- Change stripe button hack -->
+    <script>
+        document.getElementsByClassName('stripe-button-el')[0]
+        .style.display= 'none';
+    </script>
+    <button type="submits" class="btn btn-outline-primary">Donate Now</button>
     </form>
 
   </div>
