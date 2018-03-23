@@ -18,6 +18,7 @@
   "homepage": "https://github.com/spausek/project-amico#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "config.json": "0.0.4",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.3",

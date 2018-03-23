@@ -3,10 +3,14 @@ const Router = Express.Router();
 const firebaseAdmin = require('../apis/firebaseAdmin.js');
 const UserController = require('../apis/userController.js');
 const TopicController = require('../apis/topicController.js');
+<<<<<<< HEAD
 const Path = require('path');
 const keys = require('../../config/keys.js');
 const stripe = require('stripe')(keys.stripeSecretKey);
 
+=======
+const MessageController = require("../apis/messageController.js");
+>>>>>>> 4b9030582aa473cb6ddf5342e9693bcaab0b555c
 
 
 Router.post('/topic/search',function(req,res){
@@ -21,6 +25,14 @@ Router.post('/topic/search',function(req,res){
   
 });
 
+Router.post("/message", function(req, res) {
+  const newMessage = MessageController.createNewMessage(req.body.newMessage);
+  const translatedMessage = MessageController.translateMessage(newMessage.messageText, "en", "es", function(data){
+    res.send(data);
+  });
+  //res.send(translatedMessage);
+  
+});
 
 
 //New Profile
