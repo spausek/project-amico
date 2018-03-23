@@ -6,7 +6,7 @@ const Router = Express.Router();
 
 let languages = [];
 
-function getLanguages(res) {
+function getLanguages() {
   db.amico_languages.findAll({}).then(function(dbamico_languages) {
     console.log(dbamico_languages);
   });
