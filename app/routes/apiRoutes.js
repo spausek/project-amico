@@ -61,7 +61,7 @@ Router.post('/topic', function(req,res){
   res.send(result);
 });
 
-Router.post('/charge', (req, res) => {
+Router.post('/payment_thanks', (req, res) => {
 	const amount = 500;
 	
 	stripe.customers.create({
@@ -74,7 +74,7 @@ Router.post('/charge', (req, res) => {
 	  currency: 'usd',
 	  customer: customer.id
   }))
-  .then(charge => res.sendFile(Path.join(__dirname, "../public/tutoring.html")))
+  .then(charge => res.sendFile(Path.join(__dirname, "../public/payment_thanks.html")))
 	
   });
   
