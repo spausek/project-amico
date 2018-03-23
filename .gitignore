@@ -58,6 +58,6 @@ typings/
 .env
 
 # ignore config.json
- config.json
+
  # ignore serviceAccount.json
-*.json
+ServiceAccount.json
