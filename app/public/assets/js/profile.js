@@ -2,8 +2,9 @@ $( document ).ready(function(){
 
   function displayUserProfile(user){
     if(firebase.auth().currentUser){
-      $('#email').text(user.email);
-      $('#inputName').val(user.displayName);
+      $('.current-user-email').text(user.email);
+      $('.current-user-bio').text(user.bio);
+      $('.current-user-name').html(user.displayName);
     }
     else{
         console.log('Not logged in...');
