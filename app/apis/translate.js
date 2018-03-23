@@ -1,6 +1,17 @@
 const translate = require("google-translate-api");
+var db = require("../models");
 
+const Express = require("express");
+const Router = Express.Router();
 
+let languages = [];
+
+function getLanguages(res) {
+  db.amico_languages.findAll({}).then(function(dbamico_languages) {
+    console.log(dbamico_languages);
+  });
+};
+getLanguages();
 
 
 const amicosTranslate = function (message, languageOne, languageTwo, callback) {
