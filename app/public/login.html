@@ -1,34 +1,105 @@
-
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Node Authentication</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
-  
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Amico</title>
+    <link rel="shortcut icon" type="image/png" href="assets/img/letter.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 
-  <!-- Font Awesome Glyphicons -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+    <!-- Time Picker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js" integrity="sha256-+jmym6PChFok5u02khNcYDy5AdfiIN7Y/QCbBqiNgeE=" crossorigin="anonymous"></script>
+
+    <!-- Moment JS -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    
+    <!-- Font-Awesome -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Google Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Cabin|Raleway:900" rel="stylesheet">
+	
+	<!-- jQuery UI Base CSS -->
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+	<!-- Animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    
+    <!-- Time Picker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css" integrity="sha256-DVV5cU9pxHH2Rofop3XD3b3rbfrOSIy2nU61DEbYy1Q=" crossorigin="anonymous" />
+  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
   <script src="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.js"></script>
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.css" />
   <script src="../assets/js/firebase.js"></script>
-  <script src="../assets/js/login.js"></script>
   <script src="../assets/js/session.js"></script>
-</head>
-<body>
-<div class="container">
+  <script src="../assets/js/login.js"></script>
+    
+    <!-- Custom Styles -->
+	<link rel="stylesheet" href="assets/css/login.css">
+    
+  </head>
+  <body>
+    
+  <!-- HEADER
+	================================================== -->
+	<header class="site-header" role="banner">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container text-center">
+                <h1 class="display-3">AMICO</h1>
+                <p class="lead">thoughts we may be miles apart, we're always under the same sky</p>
+            </div>
+        </div>
+    </header>
 
-    <div class="jumbotron text-center">
-        <h1><span class="fa fa-lock"></span> Node Authentication</h1>
+    <section id="login" class="pt-3 " >
+      <div class="container text-center">
+          <div class="row justify-content-md-center">
+            <div class="col-md-6 col-md-auto">
+                <div class="card rounded-0">
+                    <div class="card-block p-4">
+                <h3>Please Login</h3>
+                <div id="firebaseui-auth-container"></div>
+                
+                <br>
+                
+                <div class="register">
+                        <h2 class="header">Or Register:</h2>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control email col-md-8 center_div" placeholder="Register your email address here">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control password col-md-8 center_div" placeholder="Password"/>
+                        </div>
+                        <button class="btn btn-danger">Register!</button>
+                    </form>
+                    </div>
 
-        <p>Login or Register with:</p>
-		<div id="firebaseui-auth-container"></div>
-    <div id="loader"></div>    
+              </div>
+            </div>
+            </div>
+          </div>
+      </div>
+    </section>
 
-    </div>
+<!-- Firebase -->
 
-</div>
+<!-- jQuery -->
+
+
+
+
+
 </body>
-</html>   
+</html>

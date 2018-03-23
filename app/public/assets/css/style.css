@@ -6,7 +6,7 @@ html {
   z-index: 1030;
   width: 100%;
   height: 62px;
-  background: rgb(250,250,210);
+  background: #d9534f;
   position: fixed;
   margin: 0 auto;  
   padding: 0px;
@@ -27,7 +27,7 @@ html {
 .navbar .nav >li>a {
   padding-top: 20px;
   padding-bottom: 10px;
-  color:rgb(192,192,192);
+  color:#eee;
   }
 
 #language  {
@@ -118,7 +118,7 @@ body {
   font-weight: 300;
   color: #212529;
   text-align: left;
-  background-color: rgb(211,211,211);
+  background-color: #eee;
   letter-spacing: 0;
   position: relative;
   margin-top: 7%;
@@ -540,7 +540,9 @@ ol, ul, dl {
   border-bottom: 10px solid #f5f8fa;
 }
 
-
+.new-topic-box{
+  margin-bottom:15px;
+}
 
 /*   
   @media screen and (max-width:1199px){

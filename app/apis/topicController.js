@@ -9,27 +9,40 @@
 			const Topic = {
 				topicId : data.topicId,
 				text : data.text,
+				authorName : data.authorName,
 				authorId : data.authorId,
 				timestamp : data.timestamp,
 			}
 			return Topic;
 		},
-		createNewTopic:function(uid,text){
-			const Topic = {
-				text : text,
-				authorId : uid
-			}
-			return Topic;
+		createNewTopic:function(uid,text,callback){
+			const  userRef = firebaseAdmin.database().ref("users/" + uid);
+				userRef.once("value").then(function(snapshot) {
+					console.log('SNAP:');
+					console.log(snapshot.val());
+					const User = snapshot.val();
+			
+					const Topic = {
+						text : text,
+						authorName : User.displayName,
+						authorId : User.uid
+					}
+					callback(Topic);
+				})
+
+			
+			
 		},
 		insertTopic : function(topic){
-			const ref = firebaseAdmin.database().ref('topics/' + topic.authorId + '/');
-			ref.push({
+			console.log('TOPIC: ' + topic);
+
+				 const topicRef = firebaseAdmin.database().ref('topics/' + topic.authorId + '/');
+					topicRef.push({
+					authorName : topic.authorName,
 					authorId : topic.authorId,
 					text : topic.text,
 					timestamp : firebaseAdmin.database.ServerValue.TIMESTAMP,
 				});
-				
-
 		},
 
 		getTopics : function(desiredLanguage, callback){

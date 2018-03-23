@@ -14,6 +14,7 @@ $( document ).ready(function(){
     firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       displayUserProfile(user);
+      console.log(user);
     } else {
       // No user is signed in.
     }
@@ -21,4 +22,5 @@ $( document ).ready(function(){
   }
 
   initialize();
+ 
 });

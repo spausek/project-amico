@@ -20,6 +20,8 @@ createServer = ()=>{
 	Server.app.use(bodyParser.urlencoded({ extended: true }));
 	Server.app.use(bodyParser.json());
 	Server.app.use(cookieParser());
+	Server.app.engine("handlebars", expressHandlerbars({ defaultLayout: "main" }));
+	Server.app.set("view engine", "handlebars");
 	Server.app.use(morgan('dev'));
 	Server.app.use(htmlRoutes);
 	Server.app.use(apiRoutes);

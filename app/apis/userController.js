@@ -49,12 +49,13 @@ const UserController = {
 		
 	},
 	//just testing
-	getUser : function(uid){
+	getUser : function(uid,callback){
 			
 				const db = firebaseAdmin.database();
-				const ref = db.ref("users/");
+				const ref = db.ref("users/" + uid);
 				ref.once("value", function(snapshot) {
 				  console.log(snapshot.val());
+				  callback(snapshot.val());
 				});	
 	},
 	//success is a callback that performs whatever action for the logged in user
