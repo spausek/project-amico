@@ -62,7 +62,7 @@ Router.post('/topic', function(req,res){
 });
 
 Router.post('/payment_thanks', (req, res) => {
-	const amount = 500;
+	const amount = 100;
 	
 	stripe.customers.create({
 	  email: req.body.stripeEmail,
