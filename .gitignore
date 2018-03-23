@@ -60,4 +60,4 @@ typings/
 # ignore config.json
 
  # ignore serviceAccount.json
-ServiceAccount.json
+serviceAccount.json
