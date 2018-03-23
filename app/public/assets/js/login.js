@@ -6,6 +6,7 @@ $( document ).ready(function(){
     signInSuccessUrl: 'http://localhost:8080/home',
     signInOptions: [
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+       firebase.auth.EmailAuthProvider.PROVIDER_ID,
     ],
     tosUrl: '<your-tos-url>'
   };
