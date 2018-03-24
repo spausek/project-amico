@@ -61,3 +61,4 @@ typings/
 
  # ignore serviceAccount.json
 serviceAccount.json
+storageAccount.json

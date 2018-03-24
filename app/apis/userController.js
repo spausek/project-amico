@@ -8,6 +8,8 @@ const UserController = {
 			uid : data.uid,
 			displayName : data.displayName,
 			email : data.email,
+			bio : data.bio,
+			avatarUrl : data.avatarUrl,
 		}
 
 		return User;
@@ -18,6 +20,8 @@ const UserController = {
 			uid : uid,
 			displayName : data.displayName,
 			email : data.email,
+			bio : data.bio,
+			avatarUrl : data.avatarUrl,
 
 		}
 		return User;
@@ -44,7 +48,8 @@ const UserController = {
 			firebaseAdmin.database().ref('users/' + User.uid).set({
 				uid : User.uid,
 				email : User.email,
-				displayName : User.displayName
+				displayName : User.displayName,
+				avatarUrl : User.avatarUrl != undefined && User.avatarUrl != null? User.avatarUrl : '#',
 			});
 		
 	},
@@ -57,6 +62,19 @@ const UserController = {
 				  console.log(snapshot.val());
 				  callback(snapshot.val());
 				});	
+	},
+
+	setAvatarUrl : function(uid,url){
+		const UserController = this;
+
+		UserController.getUser(uid,function(data){
+			const user = data;
+
+			user.avatarUrl = ''
+			//console.log(user);
+			const userRef = firebaseAdmin.database().ref('/users/'+uid);
+			userRef.update()
+		})
 	},
 	//success is a callback that performs whatever action for the logged in user
 	validateIdToken : function(idToken,success){
@@ -81,7 +99,9 @@ const UserController = {
 			return error.message;
 		}
 
-	}
+	},
+
+	//setProfilePhoto()
 
 }
 

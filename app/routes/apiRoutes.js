@@ -4,7 +4,7 @@ const firebaseAdmin = require('../apis/firebaseAdmin.js');
 const UserController = require('../apis/userController.js');
 const TopicController = require('../apis/topicController.js');
 const MessageController = require("../apis/messageController.js");
-
+const StorageController = require('../apis/storageController.js');
 
 Router.post('/topic/search',function(req,res){
  const idToken = req.body.idToken;
@@ -27,7 +27,45 @@ Router.post("/message", function(req, res) {
   
 });
 
+Router.get('/profile/:id',function(req,res){
+  const idToken = req.headers.idtoken;
+  UserController.validateIdToken(idToken,function(uid){
+    UserController.getUser(uid,function(user){
+      res.send(user);
+    });
+  });
+  
+});
 
+Router.post('/profile/avatar', function(req,res){
+  
+  console.log(req.body);
+  //UserController.validateIdToken(idToken,function(uid){
+  /*
+      if(req.files.avatar){
+        const avatar = req.files.avatar;
+        const fileLocation = './uploads/photo.jpg';
+        avatar.mv(fileLocation,function(err){
+          if(!err){
+              console.log('succeessfully moved file');
+              StorageController.uploadAvatar(fileLocation, function(success){
+                if(success){
+                  UserController.setAvatarUrl(uid);
+                }
+            });
+          }
+          else{
+            console.log(err);
+          }
+
+        });
+      }*/
+
+
+ // })
+  //below needs to go into a function inside storage controller...
+
+})
 //New Profile
 Router.post('/profile',function(req,res){
 
@@ -39,13 +77,15 @@ Router.post('/profile',function(req,res){
   res.send(result);
 });
 //Update Profile
+
+
 Router.put('/profile',function(req,res){
 
   const idToken = req.body.idToken;
   
+});
 
 
-})
 
 Router.post('/topic', function(req,res){
   const idToken = req.body.idToken;
