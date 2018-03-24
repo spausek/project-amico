@@ -19,8 +19,8 @@ Router.post('/topic/search',function(req,res){
 });
 
 Router.post("/message", function(req, res) {
-  const newMessage = MessageController.createNewMessage(req.body.newMessage);
-  const translatedMessage = MessageController.translateMessage(newMessage.messageText, "en", "es", function(data){
+  const topicText = MessageController.createNewMessage(req.body.topicText);
+  const translatedMessage = MessageController.translateMessage(topicText.messageText, "en", "es", function(data){
     res.send(data);
   });
   

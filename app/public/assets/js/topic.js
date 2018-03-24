@@ -69,12 +69,22 @@ $( document ).ready(function(){
     }
   }
 
+  function  messageTranslate(topicText) {
+    $.post("/message", {
+      topicText: topicText, //NewMessage
+    }).then(function(data) {
+        console.log("Created new message");
+        console.log(data);
+    });
+  };
+
 
       
   $(document).on('click','.create-topic',function(){
+    event.preventDefault();
     const topicText =  $('#topic-text-box').val().trim();
     createNewTopic(topicText);
-    
+    messageTranslate(topicText);
   })
 
   //wait for the user's session to change and if it is a user, then get the topics
