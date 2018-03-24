@@ -70,7 +70,7 @@ Router.post('/payment_thanks', (req, res) => {
 	})
 	.then(customer => stripe.charges.create({
 	  amount,
-	  description: 'Tutoring',
+	  description: 'donation',
 	  currency: 'usd',
 	  customer: customer.id
   }))
