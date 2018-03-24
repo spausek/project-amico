@@ -91,7 +91,7 @@ const UserController = {
 	getRecentUsers : function(callback){
 		const UserController = this;
 		const db = firebaseAdmin.database();
-		const ref = db.ref("users/").orderByChild('createdAt').limit(5);
+		const ref = db.ref("users/").orderByChild('createdAt').limitToFirst(5);
 			ref.once("value", function(snapshot) {
 				 
 				 const userSnapshot = snapshot.val();
@@ -99,6 +99,7 @@ const UserController = {
 				 for(user in userSnapshot){
 				 	Users.push(UserController.createUser(userSnapshot[user]));		
 				 }
+				 console.log(Users);
 				callback(Users);
 			});
 				  
