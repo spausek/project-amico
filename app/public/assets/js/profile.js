@@ -18,7 +18,7 @@ $( document ).ready(function(){
               $('.current-user-bio').text(currentUser.bio);
               $('.current-user-name').html(currentUser.displayName);
               $('.current-user-avatar').attr("src",currentUser.avatarUrl);
-
+              
             },
             error: function () { },
         });
@@ -50,17 +50,22 @@ $( document ).ready(function(){
 
 
 
-
-  function createNewProfile(displayName,email){
-    const user = {
-      displayName : displayName,
-      email : email
-    }
+  /*
+  function createNewProfile(photoUrl){
+    
+     firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
     if(firebase.auth().currentUser){
       firebase.auth().currentUser.getIdToken(true).then(function(idToken) {
-        $.post('/profile',{user:user,idToken:idToken}).then(function(data){
+        const newUser = {
+          displayName : user.displayName,
+          email : user.email,
+          avatarUrl : user.photoURL != null && user.photoURL != undefined ? user.photoURL : null,
+
+        }
+        $.post('/profile',{user:newUser,idToken:idToken}).then(function(data){
           console.log(data) 
-          window.location = "/home";
+          //window.location = "/home";
         });
       }).catch(function(error) {
           //POP UP ERROR MODAL WITH ERROR MESSAGE
@@ -71,15 +76,17 @@ $( document ).ready(function(){
         //POP UP MODAL FOR NOT LOGGED IN
         console.log('Not logged in...');
       }
+    };
+  });
     }
+    */
 
     initialize();
 
     $(document).on('click','.save-profile',function(){
-      console.log('sup');
-        const displayName = $('#inputName').val();
-        const email = $('#email').text;
-        createNewProfile(displayName,email);
+        console.log('sup');
+        
+       // createNewProfile();
         
       });
 

@@ -3,7 +3,7 @@ $( document ).ready(function(){
   const ui = new firebaseui.auth.AuthUI(firebase.auth());
   const uiConfig = {
     signInFlow: 'redirect',
-    signInSuccessUrl: 'http://localhost:8080/home',
+    signInSuccessUrl: '/home',
     signInOptions: [
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
        firebase.auth.EmailAuthProvider.PROVIDER_ID,

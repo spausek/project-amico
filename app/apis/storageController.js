@@ -5,9 +5,6 @@ const bucket = GCS.bucket('project-amico.appspot.com');
 const StorageController = {
 
 	uploadAvatar : function(filepath,callback){
-		console.log('uhh hello!');
-		//console.log(bucket);
-		//console.log( require('../../config/serviceAccount.json'));
 		const fileName = 'avatar.jpg';
 		bucket.upload(filepath,{destination:'users/'+fileName}, function(err,file){
 			if(!err){

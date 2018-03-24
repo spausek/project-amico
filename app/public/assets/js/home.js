@@ -48,5 +48,14 @@ $( document ).ready(function(){
   }
 
   initialize();
+
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      displayUserProfile(user);
+      //console.log(user);
+    } else {
+      // No user is signed in.
+    }
+    });
  
 });
