@@ -7,7 +7,7 @@ $( document ).ready(function(){
  
 
   function formatTopic(topic){
-    const timestamp = moment.tz(topic.timestamp, moment.tz.guess()).format('MM/DD/YYYY - h:mm:ss A');
+    const timestamp = moment.tz(topic.timestamp, moment.tz.guess()).format('h:mm:ss A - MM/DD/YYYY');
     let topicElement = '<li class="media list-group-item p-4 topic-element">'+
                         '<img class="media-object d-flex align-self-start mr-3" src="' +topic.authorAvatarUrl + ' ">'+
                         '<div class="media-body">'+
