@@ -3,11 +3,13 @@ const UserController = {
 
 	//Use when returning data from a query
 	createUser : function(data){
-
+		const placeholderUrl = 'https://c1.staticflickr.com/6/5002/5281086000_a1b124db59_z.jpg'
 		const User = {
 			uid : data.uid,
 			displayName : data.displayName,
 			email : data.email,
+			bio : data.bio,
+			avatarUrl : data.avatarUrl != null && data.avatarUrl != undefined ? data.avatarUrl : placeholderUrl,
 		}
 
 		return User;
@@ -18,45 +20,81 @@ const UserController = {
 			uid : uid,
 			displayName : data.displayName,
 			email : data.email,
+			bio : data.bio,
+			avatarUrl : data.photoURL,
 
 		}
 		return User;
 	},
 
-	/*validateUid : function(uid, success){
+	getGoogleUser : function(uid, success){
 		firebaseAdmin.auth().getUser(uid)
 		 .then(function(userRecord) {
 		    // See the UserRecord reference doc for the contents of userRecord.
-		    //console.log("Successfully fetched user data:", userRecord.toJSON());
-
-		    return true;
+		    //console.log("Successfully fetched user data:", userRecord);
+		    if(success != null && success != undefined){
+		    	success(userRecord);
+		    }
+		    
 		})
 		.catch(function(error) {
 			console.log("Error fetching user data:", error);
 			return false;
 		});
-	},*/
+	},
 	
-	insertUser: function(User){
+	insertUser: function(User, callback){
 		
+
 		const UserController = this;
-		
+		const placeholderUrl = 'https://c1.staticflickr.com/6/5002/5281086000_a1b124db59_z.jpg'
 			firebaseAdmin.database().ref('users/' + User.uid).set({
 				uid : User.uid,
 				email : User.email,
-				displayName : User.displayName
+				displayName : User.displayName,
+				avatarUrl : User.avatarUrl != undefined && User.avatarUrl != null? User.avatarUrl : placeholderUrl,
+			}).then(function(){
+
+				callback(UserController.getGoogleUser(User.uid));
+
 			});
+
+
 		
 	},
 	//just testing
 	getUser : function(uid,callback){
-			
+			const UserController = this;
 				const db = firebaseAdmin.database();
 				const ref = db.ref("users/" + uid);
 				ref.once("value", function(snapshot) {
-				  console.log(snapshot.val());
-				  callback(snapshot.val());
+				  //console.log(snapshot.val());
+				  if(!snapshot.val())
+				  {
+				  	UserController.getGoogleUser(uid,function(user){
+						const newUser = UserController.createNewUser(uid,user);
+					  	UserController.insertUser(newUser,callback);
+					  });
+				  }
+				  else{
+				  	callback(snapshot.val());
+				  }
+				  
+
 				});	
+	},
+
+	setAvatarUrl : function(uid,url){
+		const UserController = this;
+
+		UserController.getUser(uid,function(data){
+			const user = data;
+
+			user.avatarUrl = ''
+			//console.log(user);
+			const userRef = firebaseAdmin.database().ref('/users/'+uid);
+			userRef.update()
+		})
 	},
 	//success is a callback that performs whatever action for the logged in user
 	validateIdToken : function(idToken,success){
@@ -81,7 +119,9 @@ const UserController = {
 			return error.message;
 		}
 
-	}
+	},
+
+	//setProfilePhoto()
 
 }
 

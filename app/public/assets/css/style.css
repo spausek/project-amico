@@ -2,6 +2,9 @@ html {
   font-size: 10px;
 }
 
+.topic-element{
+  margin-bottom:5px;
+}
 .navbar {
   z-index: 1030;
   width: 100%;

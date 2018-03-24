@@ -24,8 +24,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js" integrity="sha256-+jmym6PChFok5u02khNcYDy5AdfiIN7Y/QCbBqiNgeE=" crossorigin="anonymous"></script>
 
     <!-- Moment JS -->
-    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-   
+    <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+    <script src="https://momentjs.com/downloads/moment-timezone-with-data.js"></script>
+
     <!-- tab icon -->
     <link rel="shortcut icon" type="image/png" href="assets/img/icon.png">
     <!-- Latest compiled and minified CSS -->
@@ -36,9 +37,10 @@
 
      <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.js"></script>
+
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- app.js -->
-
+    
     <script src="./assets/js/firebase.js"></script>
     <script src="./assets/js/session.js"></script>
     <script src="./assets/js/home.js"></script>
@@ -83,7 +85,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
             <li><a href="./home.html">Home</a></li>
-            <li><a href="./profile_ui.html">Profile</a></li>
+            <li><a href="./profile.html">Profile</a></li>
             <li><a data-toggle="modal" href="#msgModal">Messages</a></li>
             <li><a href="./payment.html">Donate</a></li>
         </ul>
@@ -96,10 +98,10 @@
         
         <div class="dropdown">
             <button class="btn btn-default .btn-transparent dropdown-toggle navbar-btn navbar-btn-avatar" type="button" id="menu1" data-toggle="dropdown">
-                <img class="rounded-circle img-responsive" src="assets/img/avatar-haig.png">
+                <img class="rounded-circle img-responsive current-user-avatar" src="">
             </button>
             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="./profile_ui.html">Edit profile</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="./profile.html">Edit profile</a></li>
                 <div class="divider"></div>
                 <li role="presentation"><a class="logout-action" role="menuitem" tabindex="-1"  >Logout</a></li>
 
@@ -203,22 +205,22 @@
                     <div class="card card-profile mb-4">
                       <div class="card-header" style="background-image: url(assets/img/connection.jpg);"></div>
                       <div class="card-body text-center">
-                        <a href="profile/index.html">
-                          <img class="card-profile-img" src="assets/img/avatar-haig.png">
+                        <a href="/profile">
+                          <img class="card-profile-img current-user-avatar" src="">
                         </a>
               
                         <h6 class="card-title">
-                          <a class="text-inherit current-user-name" href="profile/index.html"></a>
+                          <a class="text-inherit current-user-name" href="/profile"></a>
                         </h6>
               
-                        <p class="mb-4 current-user-bio">I wish i was a little bit taller, wish i was a baller</p>
+                        <p class="mb-4 current-user-bio current-user-bio"></p>
               
                       </div>
                     </div>
               
                     <div class="card d-md-block d-md-block mb-4 ">
                       <div class="card-body">
-                        <h6 class="mb-3">About <small>· <a href="./profile_ui.html">Edit</a></small></h6>
+                        <h6 class="mb-3">About <small>· <a href="./profile.html">Edit</a></small></h6>
                         <ul class="list-unstyled list-spaced">
                           <li><span class="text-muted icon glyphicon glyphicon-calendar mr-3"></span>Went to <a href="#">Los Angeles, CA</a>
                           </li><li><span class="text-muted icon glyphicon glyphicon-user mr-3"></span>Became friends with <a href="#">Obama</a>
@@ -255,7 +257,7 @@
                   <div class="col-md-3 col-sm-12">
                     <div class="alert alert-warning alert-dismissible d-none d-md-block" role="alert">
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                      <a class="alert-link" href="profile/index.html">Visit your profile!</a> Check your self, you aren't looking well.
+                      <a class="alert-link" href="/profile">Visit your profile!</a> Check your self, you aren't looking well.
                     </div>
               
                     <div class="card mb-4 d-none d-md-block">

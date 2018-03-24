@@ -11,21 +11,23 @@
 				text : data.text,
 				authorName : data.authorName,
 				authorId : data.authorId,
+				authorAvatarUrl : data.authorAvatarUrl,
 				timestamp : data.timestamp,
+				comments : data.comments,
 			}
 			return Topic;
 		},
 		createNewTopic:function(uid,text,callback){
 			const  userRef = firebaseAdmin.database().ref("users/" + uid);
 				userRef.once("value").then(function(snapshot) {
-					console.log('SNAP:');
-					console.log(snapshot.val());
+					
 					const User = snapshot.val();
 			
 					const Topic = {
 						text : text,
 						authorName : User.displayName,
-						authorId : User.uid
+						authorId : User.uid,
+						authorAvatarUrl : User.avatarUrl,
 					}
 					callback(Topic);
 				})
@@ -41,6 +43,7 @@
 					authorName : topic.authorName,
 					authorId : topic.authorId,
 					text : topic.text,
+					authorAvatarUrl : topic.authorAvatarUrl,
 					timestamp : firebaseAdmin.database.ServerValue.TIMESTAMP,
 				});
 		},
@@ -48,7 +51,7 @@
 		getTopics : function(desiredLanguage, callback){
 			const TopicController = this;
 
-	      	const queryTopicOwners = firebaseAdmin.database().ref("topics").orderByKey();
+	      	const queryTopicOwners = firebaseAdmin.database().ref("topics").orderByChild('timestamp');
 	      	queryTopicOwners.once("value")
 	        	.then(function(snapshot) {
 	        		const topics = [];
@@ -61,7 +64,7 @@
 		            	for(topicId in userTopicData){
 			              	const topic = TopicController.createTopic(userTopicData[topicId]);
 			              	console.log(topic);
-			              	topics.push(topic);
+			              	topics.unshift(topic);
 		            	}  
            	    
 	        		});

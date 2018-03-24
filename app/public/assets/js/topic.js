@@ -7,17 +7,18 @@ $( document ).ready(function(){
  
 
   function formatTopic(topic){
-
-    let topicElement = '<li class="media list-group-item p-4">'+
-                        '<img class="media-object d-flex align-self-start mr-3" src="assets/img/avatar-haig.png">'+
+    const timestamp = moment.tz(topic.timestamp, moment.tz.guess()).format('MM/DD/YYYY - h:mm:ss A');
+    let topicElement = '<li class="media list-group-item p-4 topic-element">'+
+                        '<img class="media-object d-flex align-self-start mr-3" src="' +topic.authorAvatarUrl + ' ">'+
                         '<div class="media-body">'+
                           '<div class="media-heading">'+
-                            '<small class="float-right text-muted">4 min</small>'+
+                            '<small class="float-right text-muted">' + timestamp+'</small>'+
                             '<h6>' + topic.authorName + '</h6>'+
                         '</div>'+
                           '<p>'+
                             topic.text+
                           '</p>'+
+                          '<a href="#">Discuss</a>'+
                         '</div>'+
                         '</li>';
 
@@ -33,7 +34,7 @@ $( document ).ready(function(){
           topics = [];
            console.log(data)
            data.map(function(topic){
-           topics.unshift(formatTopic(topic));
+           topics.push(formatTopic(topic));
            });
            topicContainer.empty();
            topicContainer.append(topics);
@@ -68,12 +69,22 @@ $( document ).ready(function(){
     }
   }
 
+  function  messageTranslate(topicText) {
+    $.post("/message", {
+      topicText: topicText, //NewMessage
+    }).then(function(data) {
+        console.log("Created new message");
+        console.log(data);
+    });
+  };
+
 
       
   $(document).on('click','.create-topic',function(){
+    event.preventDefault();
     const topicText =  $('#topic-text-box').val().trim();
     createNewTopic(topicText);
-    
+    messageTranslate(topicText);
   })
 
   //wait for the user's session to change and if it is a user, then get the topics

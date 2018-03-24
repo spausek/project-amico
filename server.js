@@ -7,6 +7,7 @@ const htmlRoutes = require('./app/routes/htmlRoutes.js');
 const apiRoutes = require('./app/routes/apiRoutes.js');
 const publicDirectory = './app/public/';
 const expressHandlerbars = require('express-handlebars');
+const expressFileUpload = require('express-fileupload');
 const morgan = require('morgan');
 const keys = require('./config/keys.js');
 const stripe = require('stripe')(keys.stripeSecretKey);
@@ -23,6 +24,7 @@ createServer = ()=>{
 	Server.app.use(express.static(publicDirectory));
 	Server.app.use(bodyParser.urlencoded({ extended: true }));
 	Server.app.use(bodyParser.json());
+	Server.app.use(expressFileUpload());
 	Server.app.use(cookieParser());
 	Server.app.engine("handlebars", expressHandlerbars({ defaultLayout: "main" }));
 	Server.app.set("view engine", "handlebars");
