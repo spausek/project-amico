@@ -2,8 +2,9 @@ $( document ).ready(function(){
 
   function displayUserProfile(user){
     if(firebase.auth().currentUser){
-      $('#email').text(user.email);
-      $('#inputName').val(user.displayName);
+      $('.current-user-email').text(user.email);
+      $('.current-user-bio').text(user.bio);
+      $('.current-user-name').html(user.displayName);
     }
     else{
         console.log('Not logged in...');
@@ -31,6 +32,7 @@ $( document ).ready(function(){
       firebase.auth().currentUser.getIdToken(true).then(function(idToken) {
         $.post('/profile',{user:user,idToken:idToken}).then(function(data){
           console.log(data) 
+          window.location = "/home";
         });
       }).catch(function(error) {
           //POP UP ERROR MODAL WITH ERROR MESSAGE
@@ -50,6 +52,6 @@ $( document ).ready(function(){
         const displayName = $('#inputName').val();
         const email = $('#email').text;
         createNewProfile(displayName,email);
-        window.location = "/home";
+        
       });
 });

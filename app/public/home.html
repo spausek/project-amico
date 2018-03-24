@@ -6,7 +6,26 @@
     <!-- Required meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <!-- jQuery, javascript file for the Bootstrap's javascript file to function -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Bootstrap's javascript file that allows the dropdown menu to work  -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+    <!-- Time Picker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js" integrity="sha256-+jmym6PChFok5u02khNcYDy5AdfiIN7Y/QCbBqiNgeE=" crossorigin="anonymous"></script>
+
+    <!-- Moment JS -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+   
     <!-- tab icon -->
     <link rel="shortcut icon" type="image/png" href="assets/img/icon.png">
     <!-- Latest compiled and minified CSS -->
@@ -15,8 +34,19 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-    <!-- Css file -->
+     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- app.js -->
+
+    <script src="./assets/js/firebase.js"></script>
+    <script src="./assets/js/session.js"></script>
+    <script src="./assets/js/home.js"></script>
+    <script src="./assets/js/profile.js"></script>
+    <script src="./assets/js/topic.js"></script>
+    <script src="./assets/js/topicTextBox.js"></script> 
+    <!-- Css file -->
+    
 
     <style>
         /* note: this is a hack for ios iframe for bootstrap themes shopify page */
@@ -44,7 +74,7 @@
         </button>
 
         <a class="navbar-brand" href="#"> <span style="display:inline-block">
-            <img class="manImg" src="assets/img/icon.png" alt="brand"></span>
+            <img class="manImg" src="assets/img/iconreallywhite.png" alt="brand"></span>
         </a>
         </div>
 
@@ -71,7 +101,7 @@
             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="./profile_ui.html">Edit profile</a></li>
                 <div class="divider"></div>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="./sign_in.html">Logout</a></li>
+                <li role="presentation"><a class="logout-action" role="menuitem" tabindex="-1"  >Logout</a></li>
 
             </ul>
 
@@ -178,10 +208,10 @@
                         </a>
               
                         <h6 class="card-title">
-                          <a class="text-inherit" href="profile/index.html">Haig Bedros</a>
+                          <a class="text-inherit current-user-name" href="profile/index.html"></a>
                         </h6>
               
-                        <p class="mb-4">I wish i was a little bit taller, wish i was a baller</p>
+                        <p class="mb-4 current-user-bio">I wish i was a little bit taller, wish i was a baller</p>
               
                       </div>
                     </div>
@@ -202,113 +232,24 @@
               
                   <div class="col-md-6 col-sm-12">
               
-                    <ul class="list-group media-list media-list-stream mb-4">
+                    <ul class="list-group media-list media-list-stream mb-4 ">
 
-                      <li class="media list-group-item p-4">
+                      <li class="media list-group-item p-4 new-topic-box">
                         <div class="col-md-12 col-sm-12">
-                                <form accept-charset="UTF-8" action="" method="POST">
-                                    <textarea class="expand form-control message-input-button-position" id="messageInput" name="text" placeholder="Type in your message" rows="1"></textarea>
+                                <form accept-charset="UTF-8">
+                                    <textarea class="expand form-control message-input-button-position" id="topic-text-box" name="text" placeholder="Type in your message" rows="1"></textarea>
                                     <div class="float-right">
                                     <small class="pull-left text-muted" style="" id="count_message"></small>
-                                    <button type="button" class="btn btn-outline-primary postButton"  style="margin-left:4px">Post</button>
+                                    <button type="button" class="btn btn-outline-primary postButton create-topic"  style="margin-left:4px">Post</button>
                                     </div>
                                 </form>
                         </div>
                       </li>
-              
-                      <li class="media list-group-item p-4">
-                        <img class="media-object d-flex align-self-start mr-3" src="assets/img/avatar-haig.png">
-                        <div class="media-body">
-                          <div class="media-heading">
-                            <small class="float-right text-muted">4 min</small>
-                            <h6>Haig Bedros</h6>
-                        </div>
-              
-                          <p>
-                            Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                          </p>
-                          
-              
-              
-                          <ul class="media-list mb-2">
-                            <li class="media mb-3">
-                              <img class="media-object d-flex align-self-start mr-3" src="assets/img/avatar-will.png">
-                              <div class="media-body">
-                                <strong>Will Lastname: </strong>
-                                <p>
-                                Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec ullamcorper nulla non metus auctor fringilla. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed posuere consectetur est at lobortis.
-                                </p>
-                                </div>
-                            </li>
-                            <li class="media">
-                              <img class="media-object d-flex align-self-start mr-3" src="assets/img/avatar-phil.png">
-                              <div class="media-body">
-                                <strong>Phil Dominguez: </strong>
-                                <p> 
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                                </p>
-                            </div>
-                            </li>
-                          </ul>
-                          <div class="row">
-                              <img class="media-object d-flex align-self-start mr-3 float-left" src="assets/img/avatar-haig.png" style="width: 7%">
-                              <textarea class="form-control message-input-button-position float-left" id="commentInput" name="comment" placeholder="Write a comment..." rows="1" style="width: 85%; margin-top:0.2%"></textarea>
-                          </div>
-                        </div>
-                      </li>
-              
-                      <li class="media list-group-item p-4">
-                        <img class="media-object d-flex align-self-start mr-3" src="assets/img/avatar-will.png">
-                        <div class="media-body">
-                          <div class="media-body-text">
-                            <div class="media-heading">
-                              <small class="float-right text-muted">12 min</small>
-                              <h6>Will Lastname</h6>
-                            </div>
-                            <p>
-                              Donec id elit non mi porta gravida at eget metus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </p>
-                          </div>
-                          <div class="row">
-                              <img class="media-object d-flex align-self-start mr-3 float-left" src="assets/img/avatar-haig.png" style="width: 7%">
-                              <textarea class="form-control message-input-button-position float-left" id="commentInput" name="comment" placeholder="Write a comment..." rows="1" style="width: 85%; margin-top:0.2%"></textarea>
-                          </div>
-                      </li>
-              
-                      <div>
-                      <li class="media list-group-item p-4">
-                        <img class="media-object d-flex align-self-start mr-3" src="assets/img/avatar-phil.png">
-                        <div class="media-body">
-                            <div class="media-body-text">
-                          <div class="media-heading">
-                            <small class="float-right text-muted">34 min</small>
-                            <h6>Phil Dominguez</h6>
-                          </div>
+                      <span id="topic-container">
                         
+                      </span>
               
-                          <p>
-                            Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                          </p>
-                        </div>
-              
-                          <ul class="media-list">
-                            <li class="media">
-                              <img class="media-object d-flex align-self-start mr-3" src="assets/img/avatar-haig.png">
-                              <div class="media-body">
-                                <strong>Haig Bedros: </strong>
-                                <p>
-                                Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec ullamcorper nulla non metus auctor fringilla. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed posuere consectetur est at lobortis.
-                                </p>
-                                </div>
-                            </li>
-                            <div class="row">
-                              <img class="media-object d-flex align-self-start mr-3 float-left" src="assets/img/avatar-haig.png" style="width: 7%">
-                              <textarea class="form-control message-input-button-position float-left" id="commentInput" name="comment" placeholder="Write a comment..." rows="1" style="width: 85%; margin-top:0.2%"></textarea>
-                          </div>
-                          </ul>
-                        </div>
-                      </li>
-                    </div>
+                      
                     </ul>
                   </div>
                   <div class="col-md-3 col-sm-12">
@@ -390,49 +331,8 @@
 
 
 
-    <!-- jQuery, javascript file for the Bootstrap's javascript file to function -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Bootstrap's javascript file that allows the dropdown menu to work  -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <!-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+   
 
-    <!-- jQuery UI -->
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-
-    <!-- Bootstrap JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-
-    <!-- Time Picker -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js" integrity="sha256-+jmym6PChFok5u02khNcYDy5AdfiIN7Y/QCbBqiNgeE=" crossorigin="anonymous"></script>
-
-    <!-- Moment JS -->
-    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
-    <script src="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.js"></script>
-    
-    <!-- app.js -->
-<<<<<<< HEAD
-    <script src="../assets/js/firebase.js"></script>
-    <script src="../assets/js/session.js"></script>
-    <script src="../assets/js/home.js"></script>
-    <script src="../assets/js/profile.js"></script>
-    <script src="../assets/js/topic.js"></script>
-<<<<<<< HEAD
-    <script src="../assets/js/topicTextBox.js"></script>
-    <script src="../assets/js/messaging.js"></script> 
-=======
-    <script src="../assets/js/topicTextBox.js"></script> 
-=======
-    <script src="./assets/js/firebase.js"></script>
-    <script src="./assets/js/session.js"></script>
-    <script src="./assets/js/home.js"></script>
-    <script src="./assets/js/profile.js"></script>
-    <script src="./assets/js/topic.js"></script>
-    <script src="./assets/js/topicTextBox.js"></script> 
->>>>>>> amico_ui_pages
->>>>>>> 8f9d23de53e196fbcaf3ff7f9ac87e35d0c61b9c
 
     </body>
 </html>

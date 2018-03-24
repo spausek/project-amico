@@ -58,9 +58,13 @@ typings/
 .env
 
 # ignore config.json
- config.json
+
  # ignore serviceAccount.json
+<<<<<<< HEAD
 *.json
 
 config
 
+=======
+serviceAccount.json
+>>>>>>> 1730812f4bc9199bef65268089eb31c673be1882

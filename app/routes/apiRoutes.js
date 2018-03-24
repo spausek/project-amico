@@ -27,7 +27,7 @@ Router.post("/message", function(req, res) {
   const translatedMessage = MessageController.translateMessage(newMessage.messageText, "en", "es", function(data){
     res.send(data);
   });
-  //res.send(translatedMessage);
+  
   
 });
 
@@ -55,8 +55,11 @@ Router.post('/topic', function(req,res){
   const idToken = req.body.idToken;
   const result = UserController.validateIdToken(idToken,function(uid){
   	const text = req.body.topic.text;
-  	const topic = TopicController.createNewTopic(uid,text);
-  	TopicController.insertTopic(topic);
+    //console.log('UID: ' + uid);
+  	TopicController.createNewTopic(uid,text,function(topic){
+      TopicController.insertTopic(topic);
+    });
+  	
   })
   res.send(result);
 });

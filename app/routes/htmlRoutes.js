@@ -6,7 +6,7 @@ const TopicController = require('../apis/topicController.js');
 
     
 Router.get("/", function(req, res) {
-    res.sendFile(Path.join(__dirname, "../public/index.html"));
+    res.sendFile(Path.join(__dirname, "../public/login.html"));
 });
   
 Router.get("/login",function(req,res){
