@@ -78,7 +78,7 @@ $( document ).ready(function(){
 
              recentUsers.map(function(user){
 
-              recentAmicos.push(formatUser(user));
+              recentAmicos.unshift(formatUser(user));
 
              })
              recentAmicosContainer.append(recentAmicos);
