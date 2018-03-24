@@ -1,7 +1,7 @@
 $( document ).ready(function(){
 
   function displayUserProfile(user){
-
+    firebase.auth().onAuthStateChanged(function(user) {
     if(firebase.auth().currentUser){
       if(firebase.auth().currentUser){
         firebase.auth().currentUser.getIdToken(true).then(function(idToken) {
@@ -34,6 +34,7 @@ $( document ).ready(function(){
         console.log('Not logged in...');
       }
     }
+  });
   
 }
   
