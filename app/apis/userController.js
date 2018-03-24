@@ -7,9 +7,10 @@ const UserController = {
 		const User = {
 			uid : data.uid,
 			displayName : data.displayName,
-			email : data.email,
+			//email : data.email,
 			bio : data.bio,
 			avatarUrl : data.avatarUrl != null && data.avatarUrl != undefined ? data.avatarUrl : placeholderUrl,
+			createdAt : data.createdAt,
 		}
 
 		return User;
@@ -19,7 +20,7 @@ const UserController = {
 		const User = {
 			uid : uid,
 			displayName : data.displayName,
-			email : data.email,
+			//email : data.email,
 			bio : data.bio,
 			avatarUrl : data.photoURL,
 
@@ -42,6 +43,9 @@ const UserController = {
 			return false;
 		});
 	},
+
+
+
 	
 	insertUser: function(User, callback){
 		
@@ -50,9 +54,10 @@ const UserController = {
 		const placeholderUrl = 'https://c1.staticflickr.com/6/5002/5281086000_a1b124db59_z.jpg'
 			firebaseAdmin.database().ref('users/' + User.uid).set({
 				uid : User.uid,
-				email : User.email,
+				//email : User.email,
 				displayName : User.displayName,
 				avatarUrl : User.avatarUrl != undefined && User.avatarUrl != null? User.avatarUrl : placeholderUrl,
+				createdAt : firebaseAdmin.database.ServerValue.TIMESTAMP
 			}).then(function(){
 
 				callback(UserController.getGoogleUser(User.uid));
@@ -82,6 +87,22 @@ const UserController = {
 				  
 
 				});	
+	},
+	getRecentUsers : function(callback){
+		const UserController = this;
+		const db = firebaseAdmin.database();
+		const ref = db.ref("users/").orderByChild('createdAt').limit(5);
+			ref.once("value", function(snapshot) {
+				 
+				 const userSnapshot = snapshot.val();
+				 const Users = [];
+				 for(user in userSnapshot){
+				 	Users.push(UserController.createUser(userSnapshot[user]));		
+				 }
+				callback(Users);
+			});
+				  
+
 	},
 
 	setAvatarUrl : function(uid,url){

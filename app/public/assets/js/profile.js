@@ -6,7 +6,7 @@ $( document ).ready(function(){
       if(firebase.auth().currentUser){
         firebase.auth().currentUser.getIdToken(true).then(function(idToken) {
          $.ajax({
-            url: '/profile/'+user.uid,
+            url: '/profiles/'+user.uid,
             type: 'GET',
             beforeSend: function (xhr) {
                 xhr.setRequestHeader('idtoken',idToken)
@@ -14,7 +14,7 @@ $( document ).ready(function(){
             data: {},
             success: function (currentUser) {
              
-              $('.current-user-email').text(currentUser.email);
+             
               $('.current-user-bio').text(currentUser.bio);
               $('.current-user-name').html(currentUser.displayName);
               $('.current-user-avatar').attr("src",currentUser.avatarUrl);

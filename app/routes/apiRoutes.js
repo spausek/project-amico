@@ -18,6 +18,15 @@ Router.post('/topic/search',function(req,res){
   
 });
 
+Router.get('/profiles',function(req,res){
+  const idToken = req.headers.idtoken;
+  UserController.validateIdToken(idToken,function(uid){
+    UserController.getRecentUsers(function(users){
+      res.send(users);
+    });
+  });
+  
+});
 Router.post("/message", function(req, res) {
   const topicText = MessageController.createNewMessage(req.body.topicText);
   const translatedMessage = MessageController.translateMessage(topicText.messageText, "en", "es", function(data){
@@ -27,7 +36,7 @@ Router.post("/message", function(req, res) {
   
 });
 
-Router.get('/profile/:id',function(req,res){
+Router.get('/profiles/:id',function(req,res){
   const idToken = req.headers.idtoken;
   UserController.validateIdToken(idToken,function(uid){
     UserController.getUser(uid,function(user){
